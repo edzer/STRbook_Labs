@@ -124,7 +124,7 @@ MOcounties <- left_join(MOcounties, BEA, by = "NAME10")
 @
 Now it is just a matter of calling \fn{ggplot} with \fn{geom\_polygon} to display the BEA income data as spatial polygons. We also use \fn{geom\_path} to draw the county boundaries. Below we show the code for 1970; similar code would be needed for 1980 and 1990. Note the use of the \args{group} argument to identify which points correspond to which county. \ifstandalone \else The resulting plots are shown in Figure~\ref{fig:BEA}. \fi
 
-<<fig.keep = 'none', results='hide'>>=
+<<fig.keep='none', results='hide'>>=
 g1 <- ggplot(MOcounties) +
     geom_polygon(aes(x = long, y = lat,     # county boundary
                      group = NAME10,        # county group

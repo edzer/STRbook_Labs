@@ -238,6 +238,8 @@ f <- z ~ lat + 1
 We are now ready to call the main function \fn{FRK}, which estimates all the unknown parameters in the models, including the covariance matrix of the basis-function coefficients and the fine-scale variance. We need to supply the formula, the data, the basis functions, the BAUs, and any other parameters configuring the expectation-maximization (EM) algorithm used for finding the maximum likelihood estimates. To reduce processing time, we have set the number of EM-algorithm steps to 3. Convergence of the EM algorithm can be assessed visually by setting \cc{\args{print\_lik} = \num{TRUE}} below.
 
 <<results='hide',message=FALSE,fig.keep='none'>>=
+proj4string(STObj5) = '+proj=longlat +ellps=sphere'
+proj4string(BAUs)   = '+proj=longlat +ellps=sphere'
 S <- FRK(f = f,               # formula
          data = list(STObj5), # (list of) data
          basis = G,           # basis functions
